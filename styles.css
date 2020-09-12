@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+header{
+    width: 90%;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: space-between !important;
+    /* align-items: center; */
+}
+.logo{
+    width: 10%;
+}
+.logo img{
+    width: 150px;
+    height: 150px;
+}
+.coll{
+    border: 1px solid ;
+    width: 50% !important;
+}
+nav{
+    width: 50%;
+    display: flex;
+    justify-self: flex-end;
+}
+nav a{
+    flex: 0 0 auto;
+    color: #828282;
+    padding: 10px 15px;
+    margin-right: 20px;
+}
