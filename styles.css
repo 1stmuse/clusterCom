@@ -24,10 +24,12 @@ header{
     width: 150px;
     height: 150px;
 }
-nav{
-    width: 50%;
-    display: flex;
-    justify-self: flex-end;
+
+@media screen and (max-width:767px){
+    .navy{
+        display: flex;
+        flex-direction: column ;
+    }
 }
 nav a{
     flex: 0 0 auto;
