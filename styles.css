@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 body{
-    /* height: 100vh; */
     width: 100vw;
     font-size: 16px;
 }
@@ -42,6 +41,7 @@ nav a{
     display: flex;
     align-items: center;
     margin-top: 20px;
+    border: 1px solid black;
 }
 @media screen and (max-width:750px){
     .left, .right{
@@ -72,6 +72,12 @@ span.better{
 }
 .left, .right{
     width: 50%;
+    border: 1px solid blue;
+}
+.bg-image{
+    width: 100%;
+    height: 100% !important;
+    border: 1px solid red;
 }
 .left p.text{
     width: 70%;
@@ -79,7 +85,7 @@ span.better{
 .cbtn{
     width: 150px;
 }
-.cbtn a{
+.blue-btn, a.blue-btn{
     text-decoration: none;
     background-color:  #300245;
     color: white;
@@ -88,28 +94,27 @@ span.better{
     padding: 8px 0px;
     text-align: center;
 }
-.right img{
-    width: 100%;
-    height: 100%;
-}
 footer{
     margin-top: 100px;
     display: flex;
     justify-content: space-between;
+    border: 1px solid yellow;
 }
 footer div a:first-child{
     margin-right: 20px;
 }
-.modal{
+.modal-content{
     position: absolute;
+    background: #FCF4FF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 300px;
-    max-height: 300px;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
+    max-width: 350px;
+    min-height: 350px;
 }
 input, textarea{
     display: block;
@@ -119,4 +124,34 @@ input, textarea{
     margin-bottom: 20px;
     padding: 5px 0px;
     padding-left: 10px;
+}
+.waitlist-submit{
+    border: none;
+    padding: 5px 10px;
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+}
+.modal-head{
+   display: flex;
+   flex-direction: column;
+   padding: 15px 0px;
+}
+.md-title{
+    font-weight: bold;
+    color: #300245;
+}
+.close-modal{
+    color: white;
+    align-self: flex-end;
+    background-color: #300245;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
 }
