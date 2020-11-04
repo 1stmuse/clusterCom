@@ -167,3 +167,19 @@ input, textarea{
     cursor: pointer;
     border-radius: 50%;
 }
+#second_modal{
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20000;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+.second-modal-content{
+    min-height: 450px;
+}
+.join-img{
+    margin-top: 20px;
+}
