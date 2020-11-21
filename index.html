@@ -77,14 +77,16 @@
                     </div>
                     <form action="" class='form'>
                         <div>
-                            <input type="text" name="name"  placeholder="What's your full name?">
+                            <input type="text" name="name" required  placeholder="What's your full name?">
                         </div>
                         <div>
-                            <input type="email" name="email" id="" placeholder="Email address">
+                            <input type="email" name="email" required id="" placeholder="Email address">
                         </div>
                         <div>
-                            <textarea name="about" id="" cols="21" rows="2" placeholder="How did you hear about us?"></textarea>
                             <button type="submit" class=" blue-btn waitlist-submit">Add me to the waitlist</button>
+                            <ul class="fa-ul loading">
+                                <li style="margin: 10px auto;"><i class="fa-li fa fa-spinner fa-spin"></i>loading</li>
+                            </ul>
                         </div>
                     </form>
                 </div>
@@ -116,13 +118,41 @@
         const form = document.querySelector('.form')
         const btn = document.querySelector('.snd-btn')
         const secondModal = document.querySelector('#second_modal')
-        const name = form.elements['name'].value
-        btn.addEventListener('click',()=>(secondModal.style.display='none'))
+        const loading = document.querySelector('.loading')
+        btn.addEventListener('click',()=>{
+            secondModal.style.display='none'
+            window.location.reload()
+        })
+        let status = false
         const submit =(e)=>{
+            status = true
+            if(status) loading.style.display ='block'
             e.preventDefault()
-            console.log(e.target.elements['name'].value)
-            // window.location.reload()
-            secondModal.style.display ='block'
+            if(e.target.elements['name'].value === '' || e.target.elements['email'].value === '' ){
+                alert('All input field must be filled')
+                return
+            }
+            fetch('https://cluster-sub-api.herokuapp.com/register', {
+                method:'POST',
+                headers:{'Content-Type' : 'Application/json'},
+                body: JSON.stringify({
+                    name: e.target.elements['name'].value,
+                    email: e.target.elements['email'].value
+                })
+            }).then(res=>{
+                if(res.status === 200){
+                    status = false
+                    console.log(res)
+                    secondModal.style.display ='block'
+                }else if(res.status === 400){
+                    alert('something occured')
+                }
+                else{
+                    alert(res.msg)
+                }
+            }).catch(err=>{
+                alert(err)
+            })
         }
         form.addEventListener('submit', submit)
       </script>

@@ -186,3 +186,6 @@ input, textarea{
 .join-img{
     margin-top: 20px;
 }
+.loading{
+    display: none;
+}
