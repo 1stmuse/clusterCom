@@ -146,9 +146,11 @@
                     console.log(res)
                     secondModal.style.display ='block'
                 }else if(res.status === 400){
-                    alert('something occured')
+                    alert('email already exist')
                 }
-                else{
+                else if(res.status === 500){
+                    alert('server error, try agian')
+                }else{
                     alert(res.msg)
                 }
             }).catch(err=>{
